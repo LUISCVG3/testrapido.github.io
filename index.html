@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Rapido</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body onload="mostrarfecha()">
+
+        <audio id="audioPerdiste">
+            <source src="Audios/gameover.mp3" type="audio/mpeg">
+            Sonido no habilitado
+        </audio>
+        <audio id="audioGanaste">
+            <source src="Audios/alarma.mp3" type="audio/mpeg">
+            sonido no habilitado
+        </audio>
+
+        <p id="idfecha"></p>
+        <h1>Test Rapido</h1>
+        <h4>Responte las preguntas lo mas rapido que puedas</h4>
+
+        
+            <p id="preguntas">1.-¿Pasatiempo favorito?</p>
+            <input type="text" id="Respuestas1" class="contenedor" placeholder="Respuesta"><br>
+            
+            <p id="preguntas">2.-¿Perros o gatos?</p>
+            <input type="text" id="Respuestas2" class="contenedor" placeholder="Respuesta"><br>
+
+            <p id="preguntas">3.-¿ <span>27 + 76</span> ?</p>
+            <input type="text" id="Respuestas3" class="contenedor" placeholder="Respuesta"><br>
+
+            <p id="preguntas">4.-¿ <span>35 - 14</span> ?</p>
+            <input type="text" id="Respuestas4" class="contenedor" placeholder="Respuesta"><br>
+
+            <p id="preguntas">5.-¿Playa o bosque?</p>
+            <input type="text" id="Respuestas5" class="contenedor" placeholder="Respuesta"><br>
+            <h1 id="G-O"></h1>
+            <button  id="boton" onclick="Iniciar()">Presiona para Iniciar</button>
+
+            <h2 id="Crono"></h2>
+
+        
+        <script>
+            let tiempoTerminado;
+            let intervaloDeTiempo;
+
+            let elementofecha = document.getElementById("idfecha");
+            let fechafinal = document.getElementsByName("mostrarf");
+            let textoGameO = document.getElementById("G-O");
+            let audiofin = document.getElementById("audioPerdiste");
+            let audiowin = document.getElementById("audioGanaste");
+            let reintentar  = document.getElementById("boton");
+            let elementotexto = document.getElementById("Crono");
+
+            function Iniciar() {
+                intervaloDeTiempo = setInterval(ticTac,1000);
+                tiempoTerminado = setTimeout(GameOver, 1000*30);
+                reintentar.textContent = "Enviar";
+                reintentar.onclick = finalizar;
+                document.getElementById("Crono").textContent = 30;
+            }
+
+            function ticTac(){
+                let tiempo = document.getElementById("Crono").textContent;
+
+                document.getElementById("Crono").textContent = tiempo - 1;
+            }
+            
+
+            function mostrarfecha(){
+                let miFecha = new Date();
+                let mostrar = miFecha.toLocaleDateString("es-Es");
+                let dia = String(miFecha.getDate()).padStart(2,"0");
+                let mes = String(miFecha.getMonth()+1).padStart(2,"0");
+                let year = miFecha.getFullYear();
+
+                let mostrarf = dia + "/" + mes + "/" + year;
+                elementofecha.textContent = mostrarf;
+            }
+
+            function finalizar(){
+                clearTimeout(tiempoTerminado);
+                clearInterval(intervaloDeTiempo);
+                resultados1 = String("Respuesta 1: " + document.getElementById("Respuestas1").value);
+                resultados2 = String("Respuesta 2: " + document.getElementById("Respuestas2").value);
+                resultados3 = String("Respuesta 3: " + document.getElementById("Respuestas3").value);
+                resultados4 = String("Respuesta 4: " + document.getElementById("Respuestas4").value);
+                resultados5 = String("Respuesta 5: " + document.getElementById("Respuestas5").value);
+                audiowin.play()
+                alert("Test Superado \n" + document.getElementById("idfecha").textContent
+                 + " -\n " + resultados1 
+                 + " \n " + resultados2 
+                 + " \n " + resultados3 
+                 + " \n " + resultados4 
+                 + " \n " + resultados5);
+                location.reload();
+            }
+
+            function GameOver(){
+                clearInterval(intervaloDeTiempo);
+                document.getElementById("Crono").textContent = 0;
+                audiofin.play();
+                textoGameO.style.color = "red";
+                textoGameO.textContent = "GAME OVER";
+                reintentar.textContent = "Reintentar";
+                reintentar.onclick= reintento;
+                mostrargame0 = "Tiempo Terminado " + document.getElementById("idfecha").textContent;
+                alert(mostrargame0)
+            }
+            
+            function reintento(){
+                location.reload();
+            }
+        </script> 
+    </body>
+</html>

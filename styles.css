@@ -1,0 +1,92 @@
+body{
+    background-color: #E9F1FA;
+}
+
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 80px;
+    text-align: center;
+    font-style: italic;
+}
+
+h4{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+#idfecha{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    text-align: center;
+}
+
+input{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 7px;
+    border-style: double;
+    background-color: #ffffff;
+    width: 300px;
+    padding: 7px;
+}
+input::placeholder{
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #b4b4b4;
+}
+
+.contenedor{
+    display: block;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+button{
+    display: block;
+    margin: 20px auto;
+    align-items: center;
+    justify-content: center;
+    background-color: #00ABE4;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+}
+
+button:hover{
+    display: block;
+    margin: 20px auto;
+    align-items: center;
+    justify-content: center;
+    background-color: #00759c;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+}
+
+span{
+    color: red;
+}
+
+#preguntas{
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background-size: auto;
+
+}
+
+#boton{
+    font-family:'Courier New', Courier, monospace;
+    font-size: 30px;
+    color: #ffff;
+    border-style:hidden;
+    text-align: center;
+    ;
+}
+
+#Crono{
+    font-size: 40px;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
